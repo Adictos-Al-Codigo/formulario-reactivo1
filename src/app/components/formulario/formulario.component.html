@@ -1,0 +1,36 @@
+<form class="form m-2" [formGroup]="_form">
+    <label class="form-label" for="name">Nombre</label>
+    <input class="form-control" type="text" formControlName="name" id="name">
+    <label class="form-label" for="lastname">Apellidos</label>
+    <input class="form-control" formControlName="last_name" type="text"> 
+    <label class="form-label" for="age">Edad</label>
+    <input class="form-control" formControlName="age" id="age" type="text"> 
+
+
+    <button class="btn btn-primary mt-3" *ngIf="status==true" (click)="update()">Actualizar</button>
+    <button class="btn btn-primary mt-3" *ngIf="status==false" (click)="save()">Guardar</button>
+</form>
+
+
+
+<table class="table" *ngIf="active">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of array_person; let i = index">
+        <td>{{item.name}}</td>
+        <td>{{item.last_name}}</td>
+        <td>{{item.age}}</td>
+        <td>
+        <i (click)="edit(i)" class="bi bi-pencil-square"></i>
+        <i (click)="destroy(i)" class="bi bi-trash3-fill"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
