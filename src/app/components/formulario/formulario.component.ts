@@ -32,6 +32,7 @@ export class FormularioComponent implements OnInit {
   }
 
   destroy(id:number){
+    this.array_person.filter((id:number) => id !== id);
     delete(this.array_person[id]);
   }
 
